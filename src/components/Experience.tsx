@@ -7,31 +7,35 @@ export default function Experience() {
   return (
     <section
       id="experience"
-      className="relative bg-paper text-ink py-24 md:py-32 px-6 md:px-10 hairline-top"
+      className="relative bg-snow text-deep-dark py-24 md:py-32 px-6 md:px-10 border-t border-gray-lightest"
     >
-      <div className="mx-auto max-w-[1600px]">
+      <div className="mx-auto max-w-container">
         <div className="flex items-end justify-between flex-wrap gap-6 mb-14 md:mb-20">
           <Reveal>
-            <span className="metadata text-secondary">02 — Experience</span>
+            <p className="mono-tag text-muted-slate">02 — Experience</p>
             <h2
-              className="headline mt-4 text-ink"
-              style={{ fontSize: "clamp(2.5rem, 7vw, 7rem)" }}
+              className="display mt-4 text-deep-dark"
+              style={{
+                fontSize: "clamp(2.25rem, 6vw, 4.5rem)",
+                lineHeight: 1,
+                letterSpacing: "-0.02em",
+              }}
             >
-              Craft.
+              Details of craft.
             </h2>
           </Reveal>
           <Reveal delay={0.1}>
-            <p className="text-secondary max-w-sm text-base md:text-lg">
-              Small, meaningful experiences at Hotel Parth — rooted in place
-              and shaped around you.
+            <p className="text-near-black body-lg max-w-sm">
+              Small, meaningful experiences at Hotel Parth — rooted in place and
+              shaped around you.
             </p>
           </Reveal>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
           {experiences.map((e, i) => (
             <Reveal key={e.title} delay={i * 0.1}>
-              <div className="group hairline" data-cursor="hover">
+              <div className="group card-22 h-full flex flex-col" data-cursor="hover">
                 <div
                   className="relative overflow-hidden"
                   style={{ aspectRatio: "4 / 5" }}
@@ -40,15 +44,13 @@ export default function Experience() {
                     src={e.image}
                     alt={e.title}
                     loading="lazy"
-                    className="img-editorial h-full w-full object-cover"
+                    className="img-zoom h-full w-full object-cover"
                   />
                 </div>
                 <div className="p-6 md:p-8">
-                  <span className="metadata text-secondary">{e.subtitle}</span>
-                  <h3 className="headline text-ink text-3xl md:text-4xl mt-3">
-                    {e.title}
-                  </h3>
-                  <p className="text-secondary mt-4 leading-relaxed">
+                  <p className="mono-tag-sm text-muted-slate">{e.subtitle}</p>
+                  <h3 className="h-sub text-deep-dark mt-3">{e.title}</h3>
+                  <p className="text-near-black mt-4 leading-relaxed">
                     {e.description}
                   </p>
                 </div>

@@ -25,39 +25,50 @@ export default function Header() {
   }, [open]);
 
   return (
-    <header
-      className="fixed top-0 left-0 right-0 z-[100]"
-      style={{ mixBlendMode: "difference" }}
-    >
+    <header className="fixed top-0 left-0 right-0 z-[100]">
       <div
         className={`transition-all duration-500 ease-editorial ${
-          scrolled ? "py-4" : "py-6"
+          scrolled
+            ? "bg-paper/90 backdrop-blur border-b border-gray-lightest"
+            : "bg-transparent"
         }`}
       >
-        <div className="mx-auto flex max-w-[1600px] items-center justify-between px-6 md:px-10">
+        <div className="mx-auto flex max-w-wide items-center justify-between px-6 md:px-10 py-4">
           <a
             href="#top"
-            className="text-white text-lg md:text-xl lowercase tracking-tight font-medium"
+            className="flex items-center gap-2 text-deep-dark"
+            data-cursor="hover"
           >
-            {siteInfo.logo}
+            <span
+              className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-deep-dark text-paper display text-base"
+              aria-hidden
+            >
+              P
+            </span>
+            <span className="text-deep-dark text-base md:text-lg tracking-tight">
+              Hotel Parth
+            </span>
           </a>
 
-          <nav className="hidden md:flex items-center gap-10">
+          <nav className="hidden md:flex items-center gap-8">
             {navLinks.map((l) => (
               <a
                 key={l.href}
                 href={l.href}
-                className="text-white text-sm tracking-tight hover:opacity-60 transition-opacity duration-300"
+                className="text-deep-dark text-[15px] hover:text-blue transition-colors duration-300"
               >
                 {l.label}
               </a>
             ))}
+            <a href="#book" className="btn-solid text-sm">
+              Book Enquiry
+            </a>
           </nav>
 
           <button
             aria-label="Open menu"
             onClick={() => setOpen(true)}
-            className="md:hidden text-white"
+            className="md:hidden text-deep-dark"
           >
             <Menu size={24} />
           </button>
@@ -71,39 +82,46 @@ export default function Header() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed inset-0 z-[200] bg-ink md:hidden"
-            style={{ mixBlendMode: "normal" }}
+            className="fixed inset-0 z-[200] bg-paper md:hidden"
           >
-            <div className="flex items-center justify-between px-6 py-6">
-              <span className="text-white lowercase text-lg">
-                {siteInfo.logo}
-              </span>
+            <div className="flex items-center justify-between px-6 py-4 border-b border-gray-lightest">
+              <span className="text-deep-dark text-lg">Hotel Parth</span>
               <button
                 aria-label="Close menu"
                 onClick={() => setOpen(false)}
-                className="text-white"
+                className="text-deep-dark"
               >
                 <X size={24} />
               </button>
             </div>
-            <nav className="flex flex-col items-start gap-6 px-6 mt-12">
+            <nav className="flex flex-col items-start gap-1 px-6 mt-10">
               {navLinks.map((l, i) => (
                 <motion.a
                   key={l.href}
                   href={l.href}
                   onClick={() => setOpen(false)}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 16 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{
                     duration: 0.6,
-                    delay: 0.1 + i * 0.06,
+                    delay: 0.08 + i * 0.05,
                     ease: [0.16, 1, 0.3, 1],
                   }}
-                  className="text-white headline text-5xl"
+                  className="display text-5xl text-ink py-3 border-b border-gray-lightest w-full"
                 >
                   {l.label}
                 </motion.a>
               ))}
+              <a
+                href="#book"
+                onClick={() => setOpen(false)}
+                className="btn-solid mt-8"
+              >
+                Book Enquiry
+              </a>
+              <p className="mono-tag-sm text-muted-slate mt-10">
+                {siteInfo.location}
+              </p>
             </nav>
           </motion.div>
         )}

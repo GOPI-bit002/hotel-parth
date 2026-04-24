@@ -38,7 +38,8 @@ export default function CustomCursor() {
       rafId.current = requestAnimationFrame(loop);
     };
 
-    const targets = "a, button, [data-cursor='hover'], input, textarea, select";
+    const targets =
+      "a, button, [data-cursor='hover'], input, textarea, select, label";
     const onOver = (e: Event) => {
       const t = e.target as HTMLElement | null;
       if (t && t.closest(targets)) {
@@ -66,5 +67,11 @@ export default function CustomCursor() {
     };
   }, []);
 
-  return <div ref={cursorRef} className="cursor-root hidden md:block" aria-hidden />;
+  return (
+    <div
+      ref={cursorRef}
+      className="cursor-root hidden md:block"
+      aria-hidden
+    />
+  );
 }

@@ -7,21 +7,25 @@ export default function Gallery() {
   return (
     <section
       id="gallery"
-      className="relative bg-paper text-ink py-24 md:py-32 px-6 md:px-10 hairline-top"
+      className="relative bg-snow text-deep-dark py-24 md:py-32 px-6 md:px-10 border-t border-gray-lightest"
     >
-      <div className="mx-auto max-w-[1600px]">
+      <div className="mx-auto max-w-container">
         <div className="flex items-end justify-between flex-wrap gap-6 mb-14 md:mb-20">
           <Reveal>
-            <span className="metadata text-secondary">05 — Gallery</span>
+            <p className="mono-tag text-muted-slate">05 — Gallery</p>
             <h2
-              className="headline mt-4 text-ink"
-              style={{ fontSize: "clamp(2.5rem, 7vw, 7rem)" }}
+              className="display mt-4 text-deep-dark"
+              style={{
+                fontSize: "clamp(2.25rem, 6vw, 4.5rem)",
+                lineHeight: 1,
+                letterSpacing: "-0.02em",
+              }}
             >
               Atmosphere.
             </h2>
           </Reveal>
           <Reveal delay={0.1}>
-            <p className="text-secondary max-w-sm text-base md:text-lg">
+            <p className="text-near-black body-lg max-w-sm">
               Moments from Hotel Parth — interiors, dining, grounds, and
               hospitality.
             </p>
@@ -33,7 +37,7 @@ export default function Gallery() {
             <Reveal
               key={i}
               delay={(i % 4) * 0.06}
-              className={`group relative overflow-hidden ${img.span}`}
+              className={`group relative overflow-hidden card-22 ${img.span}`}
             >
               <div
                 className="relative h-full w-full min-h-[200px] overflow-hidden"
@@ -43,7 +47,7 @@ export default function Gallery() {
                   src={img.src}
                   alt={img.alt}
                   loading="lazy"
-                  className="img-editorial absolute inset-0 h-full w-full object-cover"
+                  className="img-zoom absolute inset-0 h-full w-full object-cover"
                 />
               </div>
             </Reveal>

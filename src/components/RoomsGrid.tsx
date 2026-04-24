@@ -8,60 +8,64 @@ export default function RoomsGrid() {
   return (
     <section
       id="stay"
-      className="relative bg-paper text-ink py-24 md:py-32 px-6 md:px-10 hairline-top"
+      className="relative bg-paper text-deep-dark py-24 md:py-32 px-6 md:px-10 border-t border-gray-lightest"
     >
-      <div className="mx-auto max-w-[1600px]">
+      <div className="mx-auto max-w-container">
         <div className="flex items-end justify-between flex-wrap gap-6 mb-14 md:mb-20">
           <Reveal>
-            <span className="metadata text-secondary">01 — Stay</span>
+            <p className="mono-tag text-muted-slate">01 — Stay</p>
             <h2
-              className="headline mt-4 text-ink"
-              style={{ fontSize: "clamp(2.5rem, 7vw, 7rem)" }}
+              className="display mt-4 text-deep-dark"
+              style={{
+                fontSize: "clamp(2.25rem, 6vw, 4.5rem)",
+                lineHeight: 1,
+                letterSpacing: "-0.02em",
+              }}
             >
-              Rooms
+              Rooms &amp; Suites.
             </h2>
           </Reveal>
           <Reveal delay={0.1}>
-            <p className="text-secondary max-w-sm text-base md:text-lg">
+            <p className="text-near-black body-lg max-w-sm">
               Every room at Hotel Parth is built around quiet comfort and
               considered detail.
             </p>
           </Reveal>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
           {rooms.map((room, i) => (
             <Reveal key={room.title} delay={i * 0.08}>
               <a
                 href="#book"
-                className="group relative block overflow-hidden"
+                className="group block card-22 hover:border-border-cool transition-colors duration-500 ease-editorial"
                 data-cursor="hover"
               >
-                <div className="relative overflow-hidden" style={{ aspectRatio: "4 / 3" }}>
+                <div
+                  className="relative overflow-hidden"
+                  style={{ aspectRatio: "4 / 3" }}
+                >
                   <img
                     src={room.image}
                     alt={room.title}
                     loading="lazy"
-                    className="img-editorial h-full w-full object-cover"
+                    className="img-zoom h-full w-full object-cover"
                   />
-                  <div className="absolute inset-0 bg-ink/0 group-hover:bg-ink/10 transition-colors duration-700 ease-editorial" />
                   <div className="absolute top-5 right-5 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-700 ease-editorial">
-                    <span className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-paper text-ink">
-                      <ArrowUpRight size={20} />
+                    <span className="inline-flex items-center justify-center w-11 h-11 rounded-full bg-paper text-deep-dark shadow">
+                      <ArrowUpRight size={18} />
                     </span>
                   </div>
                 </div>
 
-                <div className="mt-5 flex items-start justify-between gap-4 hairline-top pt-5">
+                <div className="p-6 md:p-8 flex items-start justify-between gap-4">
                   <div>
-                    <h3 className="headline text-ink text-2xl md:text-3xl">
-                      {room.title}
-                    </h3>
-                    <p className="metadata text-secondary mt-2">
+                    <p className="mono-tag-sm text-muted-slate mb-2">
                       {room.category}
                     </p>
+                    <h3 className="h-sub text-deep-dark">{room.title}</h3>
                   </div>
-                  <span className="metadata text-secondary shrink-0 text-right">
+                  <span className="mono-tag-sm text-muted-slate shrink-0 text-right pt-1">
                     {room.label}
                   </span>
                 </div>

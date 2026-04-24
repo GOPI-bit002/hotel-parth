@@ -11,30 +11,42 @@ const socials = [
 
 export default function Footer() {
   return (
-    <footer className="relative bg-footer text-paper py-20 md:py-28 px-6 md:px-10">
-      <div className="mx-auto max-w-[1600px]">
+    <footer className="relative footer-dusk text-paper py-20 md:py-28 px-6 md:px-10">
+      <div className="mx-auto max-w-container">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16">
           <div className="md:col-span-7">
             <h3
-              className="headline"
-              style={{ fontSize: "clamp(3rem, 10vw, 10rem)" }}
+              className="display text-paper"
+              style={{
+                fontSize: "clamp(2.75rem, 9vw, 7.5rem)",
+                lineHeight: 1,
+                letterSpacing: "-0.02em",
+              }}
             >
               Hotel Parth
             </h3>
-            <p className="text-paper/60 mt-6 max-w-md text-base md:text-lg leading-relaxed">
+            <p className="text-paper/70 mt-6 max-w-md body-lg leading-relaxed">
               A refined hotel experience built around comfort, calm, and warm
               hospitality.
             </p>
+
+            <a
+              href="#book"
+              className="mt-8 inline-flex items-center gap-2 rounded-pill bg-paper text-deep-dark px-6 py-3 text-sm font-medium hover:bg-blue hover:text-paper transition-colors duration-500 ease-editorial"
+            >
+              Plan your stay
+              <ArrowUpRight size={16} />
+            </a>
           </div>
 
           <div className="md:col-span-2">
-            <p className="metadata text-paper/50 mb-5">Socials</p>
+            <p className="mono-tag-sm text-paper/50 mb-5">Socials</p>
             <ul className="space-y-3">
               {socials.map((s) => (
                 <li key={s.label}>
                   <a
                     href={s.href}
-                    className="group inline-flex items-center gap-2 text-paper hover:opacity-60 transition-opacity"
+                    className="group inline-flex items-center gap-2 text-paper/90 hover:text-paper transition-colors"
                     data-cursor="hover"
                   >
                     {s.label}
@@ -49,12 +61,12 @@ export default function Footer() {
           </div>
 
           <div className="md:col-span-3">
-            <p className="metadata text-paper/50 mb-5">Contact</p>
-            <ul className="space-y-3 text-paper">
+            <p className="mono-tag-sm text-paper/50 mb-5">Contact</p>
+            <ul className="space-y-3 text-paper/90">
               <li>
                 <a
                   href={`tel:${siteInfo.phone.replace(/\s/g, "")}`}
-                  className="hover:opacity-60 transition-opacity"
+                  className="hover:text-paper transition-colors"
                   data-cursor="hover"
                 >
                   {siteInfo.phone}
@@ -63,7 +75,7 @@ export default function Footer() {
               <li>
                 <a
                   href={`mailto:${siteInfo.email}`}
-                  className="hover:opacity-60 transition-opacity"
+                  className="hover:text-paper transition-colors"
                   data-cursor="hover"
                 >
                   {siteInfo.email}
@@ -75,10 +87,10 @@ export default function Footer() {
         </div>
 
         <div className="mt-20 pt-8 border-t border-paper/10 flex flex-wrap items-center justify-between gap-4">
-          <p className="metadata text-paper/50">
+          <p className="mono-tag-sm text-paper/50">
             © 2026 Hotel Parth. Crafted for premium hospitality.
           </p>
-          <p className="metadata text-paper/50">Hamirpur · H.P.</p>
+          <p className="mono-tag-sm text-paper/50">Hamirpur · H.P.</p>
         </div>
       </div>
     </footer>

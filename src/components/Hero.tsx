@@ -31,38 +31,33 @@ export default function Hero() {
   return (
     <section
       id="top"
-      className="relative min-h-[90vh] w-full overflow-hidden bg-ink text-paper"
+      className="relative min-h-[92vh] w-full bg-paper text-deep-dark"
     >
-      <div
-        className="absolute inset-0 opacity-40"
-        style={{
-          backgroundImage: `url(${heroBg})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          filter: "grayscale(100%)",
-        }}
-        aria-hidden
-      />
-      <div className="absolute inset-0 bg-gradient-to-b from-ink/40 via-ink/20 to-ink/60" aria-hidden />
-
-      <div className="relative z-10 flex min-h-[90vh] flex-col">
-        <div className="flex-1 flex items-center justify-center px-6 pt-32 pb-20">
-          <div className="w-full max-w-[1600px] text-center">
+      <div className="relative z-10 flex min-h-[92vh] flex-col">
+        <div className="flex-1 flex items-center justify-center px-6 pt-36 pb-16">
+          <div className="w-full max-w-container text-center">
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease, delay: 0.1 }}
-              className="metadata text-paper/70 mb-8"
+              className="mono-tag text-muted-slate mb-8"
             >
-              Himachal Pradesh · Est. Hospitality
+              <span className="inline-flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-blue" />
+                Himachal Pradesh · Est. Hospitality
+              </span>
             </motion.p>
 
             <motion.h1
               variants={container}
               initial="hidden"
               animate="visible"
-              className="headline text-paper"
-              style={{ fontSize: "clamp(3.5rem, 12vw, 16rem)" }}
+              className="display text-deep-dark"
+              style={{
+                fontSize: "clamp(3.25rem, 12vw, 10rem)",
+                lineHeight: 1,
+                letterSpacing: "-0.02em",
+              }}
               aria-label={title}
             >
               {title.split("").map((char, i) => (
@@ -86,7 +81,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.9, ease, delay: 0.8 }}
-              className="mt-8 text-paper/80 text-lg md:text-2xl max-w-2xl mx-auto"
+              className="mt-8 text-near-black/80 body-lg max-w-xl mx-auto"
             >
               {siteInfo.tagline}
             </motion.p>
@@ -95,25 +90,19 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.9, ease, delay: 1.0 }}
-              className="mt-10 flex flex-wrap items-center justify-center gap-4"
+              className="mt-10 flex flex-wrap items-center justify-center gap-3"
             >
-              <a
-                href="#book"
-                className="group inline-flex items-center gap-3 bg-paper text-ink px-7 py-4 rounded-full text-sm font-medium hover:bg-paper/90 transition-all duration-500 ease-editorial"
-              >
+              <a href="#book" className="btn-solid group">
                 Book Enquiry
                 <ArrowUpRight
-                  size={18}
+                  size={16}
                   className="transition-transform duration-500 ease-editorial group-hover:rotate-45"
                 />
               </a>
-              <a
-                href="#stay"
-                className="group inline-flex items-center gap-3 border border-paper/40 text-paper px-7 py-4 rounded-full text-sm font-medium hover:bg-paper hover:text-ink transition-all duration-500 ease-editorial"
-              >
+              <a href="#stay" className="btn-outline group">
                 View Rooms
                 <ArrowUpRight
-                  size={18}
+                  size={16}
                   className="transition-transform duration-500 ease-editorial group-hover:rotate-45"
                 />
               </a>
@@ -121,16 +110,52 @@ export default function Hero() {
           </div>
         </div>
 
+        {/* Purple band housing a floating product-like image */}
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, ease, delay: 1.3 }}
-          className="w-full border-t border-paper/20"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease, delay: 1.2 }}
+          className="violet-band relative px-6 md:px-10 pt-16 md:pt-20 pb-24 md:pb-28"
         >
-          <div className="mx-auto max-w-[1600px] px-6 md:px-10 py-6 flex flex-wrap items-center justify-between gap-4">
-            <span className="metadata text-paper/70">Location · Hamirpur</span>
-            <span className="metadata text-paper/70">Boutique Stay</span>
-            <span className="metadata text-paper/70">Open All Year</span>
+          <div className="mx-auto max-w-container">
+            <div className="flex flex-wrap items-end justify-between gap-6 text-paper mb-10">
+              <p className="mono-tag text-paper/70">
+                A showcase of the property
+              </p>
+              <p className="mono-tag text-paper/60">Open All Year · Hamirpur</p>
+            </div>
+            <div
+              className="relative overflow-hidden"
+              style={{
+                borderRadius: "22px",
+                aspectRatio: "16 / 9",
+                border: "1px solid rgba(255,255,255,0.1)",
+              }}
+            >
+              <img
+                src={heroBg}
+                alt="Hotel Parth exterior and rooms"
+                className="h-full w-full object-cover"
+              />
+            </div>
+          </div>
+
+          {/* Metadata row at the base of the purple band */}
+          <div className="mx-auto max-w-container mt-14 grid grid-cols-2 md:grid-cols-4 gap-6 text-paper">
+            {[
+              { k: "Location", v: "Hamirpur, H.P." },
+              { k: "Category", v: "Boutique Stay" },
+              { k: "Rooms", v: "Curated · 24" },
+              { k: "Availability", v: "Open All Year" },
+            ].map((item) => (
+              <div
+                key={item.k}
+                className="border-l border-paper/15 pl-4"
+              >
+                <p className="mono-tag-sm text-paper/60 mb-2">{item.k}</p>
+                <p className="text-paper text-base md:text-lg">{item.v}</p>
+              </div>
+            ))}
           </div>
         </motion.div>
       </div>
