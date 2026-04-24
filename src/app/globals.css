@@ -1,0 +1,116 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ease-editorial: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html,
+body {
+  background: #ffffff;
+  color: #000000;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: -0.02em;
+}
+
+body {
+  font-family: var(--font-inter), Inter, system-ui, -apple-system, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  body.cursor-hidden,
+  body.cursor-hidden * {
+    cursor: none !important;
+  }
+}
+
+::selection {
+  background: #000000;
+  color: #ffffff;
+}
+
+.headline {
+  font-weight: 700;
+  letter-spacing: -0.05em;
+  line-height: 0.9;
+}
+
+.metadata {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 500;
+}
+
+.hairline-top {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+.hairline-bottom {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.hairline {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Marquee */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  animation: marquee 45s linear infinite;
+  will-change: transform;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* Hide scrollbar for marquee wrappers */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Custom cursor root */
+.cursor-root {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 9999px;
+  background: #ffffff;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: difference;
+  transform: translate(-50%, -50%);
+  transition: transform 300ms var(--ease-editorial),
+    width 300ms var(--ease-editorial), height 300ms var(--ease-editorial);
+}
+
+/* Smooth image transitions */
+.img-editorial {
+  filter: grayscale(100%);
+  transition: filter 700ms var(--ease-editorial),
+    transform 700ms var(--ease-editorial);
+}
+
+.img-editorial-hover:hover .img-editorial,
+.group:hover .img-editorial {
+  filter: grayscale(0%);
+  transform: scale(1.05);
+}
