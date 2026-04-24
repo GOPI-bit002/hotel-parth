@@ -82,55 +82,48 @@ export default function BookingForm() {
     }
   };
 
-  const labelCls = "mono-tag-sm text-muted-slate block mb-2";
+  const labelCls = "micro-tag text-cool-slate block mb-3";
 
   return (
     <section
       id="book"
-      className="relative bg-paper text-deep-dark py-24 md:py-32 px-6 md:px-10 border-t border-gray-lightest"
+      className="relative bg-ink text-paper py-24 md:py-32 px-6 md:px-10 border-t border-border-dark"
     >
       <div className="mx-auto max-w-container grid md:grid-cols-12 gap-10 md:gap-16">
         <div className="md:col-span-5">
           <Reveal>
-            <p className="mono-tag text-muted-slate">03 — Enquire</p>
+            <p className="label-upper text-cool-slate">06 — Enquire</p>
           </Reveal>
           <Reveal delay={0.08}>
-            <h2
-              className="display mt-4 text-deep-dark"
-              style={{
-                fontSize: "clamp(2.25rem, 6vw, 4.5rem)",
-                lineHeight: 1,
-                letterSpacing: "-0.02em",
-              }}
-            >
+            <h2 className="h-section mt-6 text-paper">
               Make a booking enquiry.
             </h2>
           </Reveal>
           <Reveal delay={0.15}>
-            <p className="text-near-black body-lg mt-6 max-w-md">
+            <p className="text-cool-slate body-std mt-6 max-w-md leading-relaxed">
               Share a few details and our front desk will confirm availability
               and curate your stay.
             </p>
           </Reveal>
 
           <Reveal delay={0.22}>
-            <div className="mt-10 card-22 p-6 md:p-8">
-              <p className="mono-tag-sm text-muted-slate">Direct Line</p>
+            <div className="mt-10 pt-8 border-t border-border-dark">
+              <p className="micro-tag text-cool-slate">Direct Line</p>
               <a
                 href={`tel:${siteInfo.phone.replace(/\s/g, "")}`}
-                className="block display text-3xl md:text-4xl mt-3 text-deep-dark hover:text-blue transition-colors"
+                className="block h-sub text-paper mt-3 hover:text-muted-gray transition-colors"
                 data-cursor="hover"
               >
                 {siteInfo.phone}
               </a>
               <a
                 href={`mailto:${siteInfo.email}`}
-                className="block mt-4 text-near-black hover:text-blue transition-colors"
+                className="block mt-4 text-cool-slate hover:text-paper transition-colors"
                 data-cursor="hover"
               >
                 {siteInfo.email}
               </a>
-              <p className="mt-6 mono-tag-sm text-muted-slate">
+              <p className="mt-6 micro-tag text-mid-slate">
                 {siteInfo.location}
               </p>
             </div>
@@ -141,7 +134,7 @@ export default function BookingForm() {
           <Reveal delay={0.1}>
             <form
               onSubmit={onSubmit}
-              className="card-22 p-6 md:p-10 grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-5"
+              className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-7"
             >
               <div className="md:col-span-2">
                 <label className={labelCls} htmlFor="name">
@@ -153,7 +146,7 @@ export default function BookingForm() {
                   value={form.name}
                   onChange={onChange}
                   placeholder="Your name"
-                  className="input-cohere"
+                  className="input-reel"
                   required
                 />
               </div>
@@ -167,7 +160,7 @@ export default function BookingForm() {
                   value={form.phone}
                   onChange={onChange}
                   placeholder="+91 ..."
-                  className="input-cohere"
+                  className="input-reel"
                   required
                 />
               </div>
@@ -182,7 +175,7 @@ export default function BookingForm() {
                   value={form.email}
                   onChange={onChange}
                   placeholder="you@example.com"
-                  className="input-cohere"
+                  className="input-reel"
                   required
                 />
               </div>
@@ -196,7 +189,7 @@ export default function BookingForm() {
                   type="date"
                   value={form.checkIn}
                   onChange={onChange}
-                  className="input-cohere"
+                  className="input-reel"
                   required
                 />
               </div>
@@ -210,8 +203,8 @@ export default function BookingForm() {
                   type="date"
                   value={form.checkOut}
                   onChange={onChange}
-                  className="input-cohere"
                   required
+                  className="input-reel"
                 />
               </div>
               <div>
@@ -223,10 +216,10 @@ export default function BookingForm() {
                   name="guests"
                   value={form.guests}
                   onChange={onChange}
-                  className="input-cohere"
+                  className="input-reel"
                 >
                   {[1, 2, 3, 4, 5, 6].map((n) => (
-                    <option key={n} value={n}>
+                    <option key={n} value={n} className="bg-ink text-paper">
                       {n} {n === 1 ? "Guest" : "Guests"}
                     </option>
                   ))}
@@ -241,12 +234,12 @@ export default function BookingForm() {
                   name="roomType"
                   value={form.roomType}
                   onChange={onChange}
-                  className="input-cohere"
+                  className="input-reel"
                 >
-                  <option>Deluxe Room</option>
-                  <option>Premium Suite</option>
-                  <option>Family Room</option>
-                  <option>Business Stay</option>
+                  <option className="bg-ink text-paper">Deluxe Room</option>
+                  <option className="bg-ink text-paper">Premium Suite</option>
+                  <option className="bg-ink text-paper">Family Room</option>
+                  <option className="bg-ink text-paper">Business Stay</option>
                 </select>
               </div>
               <div className="md:col-span-2">
@@ -258,27 +251,27 @@ export default function BookingForm() {
                   name="message"
                   value={form.message}
                   onChange={onChange}
-                  rows={4}
+                  rows={3}
                   placeholder="Tell us about your stay — preferences, occasion, arrival details."
-                  className="input-cohere resize-none"
+                  className="input-reel resize-none"
                 />
               </div>
 
-              <div className="md:col-span-2 pt-4 flex flex-wrap gap-3 items-center">
+              <div className="md:col-span-2 pt-6 flex flex-wrap gap-3 items-center">
                 <button
                   type="submit"
                   disabled={status === "loading"}
-                  className="btn-solid group disabled:opacity-60"
+                  className="btn-light group disabled:opacity-60"
                 >
                   {status === "loading" ? "Sending..." : "Send Booking Enquiry"}
                   <ArrowUpRight
-                    size={16}
+                    size={14}
                     className="transition-transform duration-500 ease-editorial group-hover:rotate-45"
                   />
                 </button>
                 <a
                   href={`tel:${siteInfo.phone.replace(/\s/g, "")}`}
-                  className="btn-outline"
+                  className="btn-ghost text-paper"
                 >
                   <Phone size={14} />
                   Call Hotel
@@ -294,12 +287,12 @@ export default function BookingForm() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -8 }}
                 transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                className="mt-6 card-22 p-6 bg-deep-dark text-paper"
+                className="mt-8 p-6 bg-dark-surface border border-border-dark rounded-generous"
                 role="status"
                 aria-live="polite"
               >
-                <p className="mono-tag-sm text-paper/60 mb-2">Thank you</p>
-                <p className="text-paper body-lg">
+                <p className="micro-tag text-cool-slate mb-2">Thank you</p>
+                <p className="text-paper body-std">
                   Your enquiry has been received. Our team will respond within
                   24 hours.
                 </p>
@@ -311,11 +304,11 @@ export default function BookingForm() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                className="mt-6 card-22 p-6 border-border-cool"
+                className="mt-8 p-6 bg-dark-surface border border-border-dark rounded-generous"
                 role="alert"
               >
-                <p className="mono-tag-sm text-muted-slate mb-2">Error</p>
-                <p className="text-deep-dark">{error}</p>
+                <p className="micro-tag text-cool-slate mb-2">Error</p>
+                <p className="text-paper">{error}</p>
               </motion.div>
             )}
           </AnimatePresence>

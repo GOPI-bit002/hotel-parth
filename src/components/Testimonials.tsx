@@ -5,49 +5,50 @@ import { testimonials } from "@/lib/siteData";
 
 export default function Testimonials() {
   return (
-    <section className="relative bg-paper text-deep-dark py-24 md:py-32 px-6 md:px-10 border-t border-gray-lightest">
+    <section className="relative bg-near-white text-ink py-24 md:py-32 px-6 md:px-10">
       <div className="mx-auto max-w-container">
         <Reveal>
-          <p className="mono-tag text-muted-slate">06 — Guests</p>
+          <p className="label-upper text-cool-slate">05 — Guests</p>
         </Reveal>
         <Reveal delay={0.08}>
-          <h2
-            className="display mt-4 text-deep-dark max-w-4xl"
-            style={{
-              fontSize: "clamp(2rem, 5.5vw, 3.75rem)",
-              lineHeight: 1.05,
-              letterSpacing: "-0.02em",
-            }}
-          >
+          <h2 className="h-section mt-6 text-ink max-w-3xl">
             Kind words from recent stays.
           </h2>
         </Reveal>
 
-        <div className="mt-16 md:mt-24 grid md:grid-cols-3 gap-6 md:gap-8">
+        <div className="mt-16 md:mt-24 grid md:grid-cols-3 gap-10 md:gap-14 border-t border-cool-silver pt-14 md:pt-20">
           {testimonials.map((t, i) => (
             <Reveal key={t.name} delay={i * 0.1}>
-              <figure className="card-22 p-8 md:p-10 h-full flex flex-col">
-                <svg
-                  aria-hidden
-                  className="text-blue mb-6"
-                  width="28"
-                  height="20"
-                  viewBox="0 0 28 20"
-                  fill="currentColor"
-                >
-                  <path d="M0 20V10C0 4.48 4.48 0 10 0v4a6 6 0 00-6 6h6v10H0zm16 0V10c0-5.52 4.48-10 10-10v4a6 6 0 00-6 6h6v10H16z" />
-                </svg>
-                <blockquote className="text-deep-dark text-lg md:text-xl leading-snug">
-                  {t.quote}
+              <figure className="h-full flex flex-col">
+                <blockquote className="text-ink text-xl md:text-2xl leading-snug tracking-tight">
+                  “{t.quote}”
                 </blockquote>
-                <figcaption className="mt-auto pt-10 border-t border-gray-lightest">
-                  <p className="text-deep-dark">{t.name}</p>
-                  <p className="mono-tag-sm text-muted-slate mt-2">{t.meta}</p>
+                <figcaption className="mt-auto pt-10">
+                  <p className="text-ink">{t.name}</p>
+                  <p className="micro-tag text-cool-slate mt-2">{t.meta}</p>
                 </figcaption>
               </figure>
             </Reveal>
           ))}
         </div>
+
+        {/* Mission-statement style close (Runway signature) */}
+        <Reveal delay={0.3}>
+          <div className="mt-28 md:mt-40 pt-14 border-t border-cool-silver">
+            <p className="label-upper text-cool-slate">— Hospitality</p>
+            <p
+              className="mt-8 text-ink max-w-5xl"
+              style={{
+                fontSize: "clamp(1.75rem, 4vw, 2.75rem)",
+                lineHeight: 1.05,
+                letterSpacing: "-0.025em",
+              }}
+            >
+              We are building Hotel Parth as a quiet retreat — a place where the
+              pace slows, the details matter, and every stay feels considered.
+            </p>
+          </div>
+        </Reveal>
       </div>
     </section>
   );

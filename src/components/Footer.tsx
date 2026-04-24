@@ -9,49 +9,79 @@ const socials = [
   { label: "Google Reviews", href: "#" },
 ];
 
+const footerLinks = [
+  { label: "Stay", href: "#stay" },
+  { label: "Experience", href: "#experience" },
+  { label: "Gallery", href: "#gallery" },
+  { label: "Location", href: "#location" },
+  { label: "Book", href: "#book" },
+];
+
 export default function Footer() {
   return (
-    <footer className="relative footer-dusk text-paper py-20 md:py-28 px-6 md:px-10">
+    <footer className="relative bg-ink text-paper pt-20 md:pt-28 pb-10 px-6 md:px-10 border-t border-border-dark">
       <div className="mx-auto max-w-container">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16">
-          <div className="md:col-span-7">
+          <div className="md:col-span-6">
             <h3
-              className="display text-paper"
+              className="text-paper"
               style={{
-                fontSize: "clamp(2.75rem, 9vw, 7.5rem)",
-                lineHeight: 1,
-                letterSpacing: "-0.02em",
+                fontSize: "clamp(2.5rem, 9vw, 7rem)",
+                lineHeight: 0.95,
+                letterSpacing: "-0.035em",
+                fontWeight: 400,
               }}
             >
               Hotel Parth
             </h3>
-            <p className="text-paper/70 mt-6 max-w-md body-lg leading-relaxed">
+            <p className="text-cool-slate mt-6 max-w-md body-std leading-relaxed">
               A refined hotel experience built around comfort, calm, and warm
               hospitality.
             </p>
 
             <a
               href="#book"
-              className="mt-8 inline-flex items-center gap-2 rounded-pill bg-paper text-deep-dark px-6 py-3 text-sm font-medium hover:bg-blue hover:text-paper transition-colors duration-500 ease-editorial"
+              className="btn-light mt-8 group"
+              data-cursor="hover"
             >
               Plan your stay
-              <ArrowUpRight size={16} />
+              <ArrowUpRight
+                size={14}
+                className="transition-transform duration-500 ease-editorial group-hover:rotate-45"
+              />
             </a>
           </div>
 
           <div className="md:col-span-2">
-            <p className="mono-tag-sm text-paper/50 mb-5">Socials</p>
+            <p className="label-upper text-cool-slate mb-5">Navigate</p>
+            <ul className="space-y-3">
+              {footerLinks.map((l) => (
+                <li key={l.label}>
+                  <a
+                    href={l.href}
+                    className="text-paper/80 hover:text-paper transition-colors"
+                    data-cursor="hover"
+                  >
+                    {l.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="md:col-span-2">
+            <p className="label-upper text-cool-slate mb-5">Socials</p>
             <ul className="space-y-3">
               {socials.map((s) => (
                 <li key={s.label}>
                   <a
                     href={s.href}
-                    className="group inline-flex items-center gap-2 text-paper/90 hover:text-paper transition-colors"
+                    className="group inline-flex items-center gap-2 text-paper/80 hover:text-paper transition-colors"
                     data-cursor="hover"
                   >
                     {s.label}
                     <ArrowUpRight
-                      size={14}
+                      size={12}
                       className="transition-transform duration-500 ease-editorial group-hover:rotate-45"
                     />
                   </a>
@@ -60,9 +90,9 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div className="md:col-span-3">
-            <p className="mono-tag-sm text-paper/50 mb-5">Contact</p>
-            <ul className="space-y-3 text-paper/90">
+          <div className="md:col-span-2">
+            <p className="label-upper text-cool-slate mb-5">Contact</p>
+            <ul className="space-y-3 text-paper/80">
               <li>
                 <a
                   href={`tel:${siteInfo.phone.replace(/\s/g, "")}`}
@@ -81,16 +111,16 @@ export default function Footer() {
                   {siteInfo.email}
                 </a>
               </li>
-              <li className="text-paper/70">{siteInfo.location}</li>
+              <li className="text-cool-slate">{siteInfo.location}</li>
             </ul>
           </div>
         </div>
 
-        <div className="mt-20 pt-8 border-t border-paper/10 flex flex-wrap items-center justify-between gap-4">
-          <p className="mono-tag-sm text-paper/50">
-            © 2026 Hotel Parth. Crafted for premium hospitality.
+        <div className="mt-20 pt-6 border-t border-border-dark flex flex-wrap items-center justify-between gap-4">
+          <p className="micro-tag text-mid-slate">
+            © 2026 Hotel Parth · Crafted for premium hospitality.
           </p>
-          <p className="mono-tag-sm text-paper/50">Hamirpur · H.P.</p>
+          <p className="micro-tag text-mid-slate">Hamirpur · Himachal Pradesh</p>
         </div>
       </div>
     </footer>

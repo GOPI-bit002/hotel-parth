@@ -29,135 +29,123 @@ export default function Hero() {
   const title = "Hotel Parth";
 
   return (
-    <section
-      id="top"
-      className="relative min-h-[92vh] w-full bg-paper text-deep-dark"
-    >
-      <div className="relative z-10 flex min-h-[92vh] flex-col">
-        <div className="flex-1 flex items-center justify-center px-6 pt-36 pb-16">
-          <div className="w-full max-w-container text-center">
-            <motion.p
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease, delay: 0.1 }}
-              className="mono-tag text-muted-slate mb-8"
-            >
-              <span className="inline-flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-blue" />
-                Himachal Pradesh · Est. Hospitality
-              </span>
-            </motion.p>
+    <section id="top" className="relative h-[100svh] min-h-[600px] w-full overflow-hidden bg-ink">
+      {/* Full-bleed cinematic image */}
+      <div className="absolute inset-0">
+        <img
+          src={heroBg}
+          alt=""
+          aria-hidden
+          className="h-full w-full object-cover"
+        />
+        {/* Dark cinematic overlays */}
+        <div className="absolute inset-0 bg-ink/40" />
+        <div className="absolute inset-0 bg-gradient-to-b from-ink/60 via-ink/20 to-ink/80" />
+      </div>
 
-            <motion.h1
-              variants={container}
-              initial="hidden"
-              animate="visible"
-              className="display text-deep-dark"
-              style={{
-                fontSize: "clamp(3.25rem, 12vw, 10rem)",
-                lineHeight: 1,
-                letterSpacing: "-0.02em",
-              }}
-              aria-label={title}
-            >
-              {title.split("").map((char, i) => (
-                <span
-                  key={i}
-                  className="inline-block overflow-hidden align-baseline"
-                  aria-hidden
+      {/* Top corner metadata */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, ease, delay: 0.4 }}
+        className="absolute top-24 md:top-28 left-6 md:left-10 z-10"
+      >
+        <p className="micro-tag text-paper/70">
+          <span className="inline-block w-1.5 h-1.5 rounded-full bg-paper mr-2 align-middle" />
+          Reel · 01 · Hamirpur
+        </p>
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, ease, delay: 0.5 }}
+        className="absolute top-24 md:top-28 right-6 md:right-10 z-10 text-right"
+      >
+        <p className="micro-tag text-paper/70">Himachal Pradesh</p>
+        <p className="micro-tag text-paper/50 mt-1">Est. Hospitality</p>
+      </motion.div>
+
+      {/* Headline — bottom-left editorial anchor */}
+      <div className="absolute inset-x-0 bottom-0 z-10 px-6 md:px-10 pb-12 md:pb-16">
+        <div className="mx-auto max-w-container">
+          <motion.h1
+            variants={container}
+            initial="hidden"
+            animate="visible"
+            className="text-paper"
+            style={{
+              fontSize: "clamp(3rem, 11vw, 10.5rem)",
+              lineHeight: 1,
+              letterSpacing: "-0.03em",
+              fontWeight: 400,
+            }}
+            aria-label={title}
+          >
+            {title.split("").map((char, i) => (
+              <span
+                key={i}
+                className="inline-block overflow-hidden align-baseline"
+                aria-hidden
+              >
+                <motion.span
+                  variants={letter}
+                  className="inline-block"
+                  style={{ whiteSpace: "pre" }}
                 >
-                  <motion.span
-                    variants={letter}
-                    className="inline-block"
-                    style={{ whiteSpace: "pre" }}
-                  >
-                    {char === " " ? "\u00A0" : char}
-                  </motion.span>
-                </span>
-              ))}
-            </motion.h1>
+                  {char === " " ? "\u00A0" : char}
+                </motion.span>
+              </span>
+            ))}
+          </motion.h1>
 
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, ease, delay: 0.8 }}
-              className="mt-8 text-near-black/80 body-lg max-w-xl mx-auto"
-            >
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, ease, delay: 0.9 }}
+            className="mt-10 grid md:grid-cols-12 gap-6 items-end"
+          >
+            <p className="md:col-span-6 text-paper/80 body-std text-base md:text-lg max-w-xl">
               {siteInfo.tagline}
-            </motion.p>
+            </p>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, ease, delay: 1.0 }}
-              className="mt-10 flex flex-wrap items-center justify-center gap-3"
-            >
-              <a href="#book" className="btn-solid group">
+            <div className="md:col-span-6 flex flex-wrap md:justify-end items-center gap-3">
+              <a href="#book" className="btn-light group">
                 Book Enquiry
                 <ArrowUpRight
-                  size={16}
+                  size={14}
                   className="transition-transform duration-500 ease-editorial group-hover:rotate-45"
                 />
               </a>
-              <a href="#stay" className="btn-outline group">
+              <a href="#stay" className="btn-ghost group text-paper">
                 View Rooms
                 <ArrowUpRight
-                  size={16}
+                  size={14}
                   className="transition-transform duration-500 ease-editorial group-hover:rotate-45"
                 />
               </a>
-            </motion.div>
-          </div>
-        </div>
-
-        {/* Purple band housing a floating product-like image */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease, delay: 1.2 }}
-          className="violet-band relative px-6 md:px-10 pt-16 md:pt-20 pb-24 md:pb-28"
-        >
-          <div className="mx-auto max-w-container">
-            <div className="flex flex-wrap items-end justify-between gap-6 text-paper mb-10">
-              <p className="mono-tag text-paper/70">
-                A showcase of the property
-              </p>
-              <p className="mono-tag text-paper/60">Open All Year · Hamirpur</p>
             </div>
-            <div
-              className="relative overflow-hidden"
-              style={{
-                borderRadius: "22px",
-                aspectRatio: "16 / 9",
-                border: "1px solid rgba(255,255,255,0.1)",
-              }}
-            >
-              <img
-                src={heroBg}
-                alt="Hotel Parth exterior and rooms"
-                className="h-full w-full object-cover"
-              />
-            </div>
-          </div>
+          </motion.div>
 
-          {/* Metadata row at the base of the purple band */}
-          <div className="mx-auto max-w-container mt-14 grid grid-cols-2 md:grid-cols-4 gap-6 text-paper">
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, ease, delay: 1.2 }}
+            className="mt-10 pt-6 border-t border-paper/15 grid grid-cols-2 md:grid-cols-4 gap-6"
+          >
             {[
               { k: "Location", v: "Hamirpur, H.P." },
               { k: "Category", v: "Boutique Stay" },
               { k: "Rooms", v: "Curated · 24" },
               { k: "Availability", v: "Open All Year" },
             ].map((item) => (
-              <div
-                key={item.k}
-                className="border-l border-paper/15 pl-4"
-              >
-                <p className="mono-tag-sm text-paper/60 mb-2">{item.k}</p>
-                <p className="text-paper text-base md:text-lg">{item.v}</p>
+              <div key={item.k}>
+                <p className="micro-tag text-paper/50 mb-1.5">{item.k}</p>
+                <p className="text-paper text-sm md:text-base">{item.v}</p>
               </div>
             ))}
-          </div>
-        </motion.div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );

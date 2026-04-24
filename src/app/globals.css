@@ -4,30 +4,34 @@
 
 :root {
   --ease-editorial: cubic-bezier(0.16, 1, 0.3, 1);
-  --blue: #1863dc;
   --ink: #000000;
-  --near-black: #212121;
-  --muted-slate: #93939f;
-  --border-cool: #d9d9dd;
-  --border-light: #f2f2f2;
+  --deep-black: #030303;
+  --dark-surface: #1a1a1a;
   --paper: #ffffff;
-  --snow: #fafafa;
-  --violet-deep: #2a1649;
-  --violet-mid: #4b2a7a;
+  --near-white: #fefefe;
+  --cool-cloud: #e9ecf2;
+  --border-dark: #27272a;
+  --cool-silver: #c9ccd1;
+  --charcoal: #404040;
+  --cool-slate: #767d88;
+  --mid-slate: #7d848e;
+  --muted-gray: #a7a7a7;
 }
 
 html,
 body {
-  background: #ffffff;
-  color: #212121;
+  background: #000000;
+  color: #ffffff;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  font-family: var(--font-sans), Inter, Arial, ui-sans-serif, system-ui;
+  font-family: var(--font-sans), Inter, "DM Sans", ui-sans-serif, system-ui,
+    sans-serif;
   line-height: 1.5;
   font-weight: 400;
+  letter-spacing: -0.01em;
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -38,193 +42,189 @@ body {
 }
 
 ::selection {
-  background: #1863dc;
-  color: #ffffff;
+  background: #ffffff;
+  color: #000000;
 }
 
-/* Display (CohereText substitute) */
-.display {
-  font-family: var(--font-display), "Instrument Serif", "Space Grotesk", Inter,
-    ui-sans-serif, system-ui, serif;
-  font-weight: 400;
-  line-height: 1;
-  letter-spacing: -0.02em;
-}
+/* ── Typography System (single face, varying size/weight/case) ── */
 
 .display-xl {
-  font-family: var(--font-display), "Instrument Serif", "Space Grotesk", Inter,
-    ui-sans-serif, system-ui, serif;
   font-weight: 400;
-  font-size: clamp(2.5rem, 7vw, 4.5rem); /* 72px max */
+  font-size: clamp(2.5rem, 7vw, 4.5rem); /* up to 72px for hotel scale */
   line-height: 1;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.025em;
 }
 
 .display-lg {
-  font-family: var(--font-display), "Instrument Serif", "Space Grotesk", Inter,
-    ui-sans-serif, system-ui, serif;
   font-weight: 400;
-  font-size: clamp(2rem, 5.5vw, 3.75rem); /* 60px max */
+  font-size: clamp(2rem, 5vw, 3rem); /* 48px — film-title */
+  line-height: 1;
+  letter-spacing: -0.025em;
+}
+
+.h-section {
+  font-weight: 400;
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem); /* 40px max */
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.h-sub {
+  font-weight: 400;
+  font-size: clamp(1.5rem, 2.5vw, 2.25rem); /* 36px max */
   line-height: 1;
   letter-spacing: -0.02em;
 }
 
-/* Section heading (sans, Unica77 substitute) */
-.h-section {
-  font-family: var(--font-sans), Inter, Arial, ui-sans-serif, system-ui;
+.h-card {
   font-weight: 400;
-  font-size: clamp(1.75rem, 4vw, 3rem); /* 48px max */
-  line-height: 1.2;
-  letter-spacing: -0.01em;
-}
-
-.h-sub {
-  font-family: var(--font-sans), Inter, Arial, ui-sans-serif, system-ui;
-  font-weight: 400;
-  font-size: clamp(1.5rem, 2.4vw, 2rem);
-  line-height: 1.2;
+  font-size: 1.5rem; /* 24px */
+  line-height: 1;
   letter-spacing: -0.01em;
 }
 
 .h-feature {
-  font-family: var(--font-sans), Inter, Arial, ui-sans-serif, system-ui;
   font-weight: 400;
-  font-size: 1.5rem;
+  font-size: 1.25rem; /* 20px */
+  line-height: 1;
+  letter-spacing: -0.01em;
+}
+
+.body-std {
+  font-size: 1rem;
+  line-height: 1.4;
+  font-weight: 400;
+  letter-spacing: -0.005em;
+}
+
+.body-sm {
+  font-size: 0.8125rem; /* 13px */
   line-height: 1.3;
-}
-
-.body-lg {
-  font-size: 1.125rem;
-  line-height: 1.4;
   font-weight: 400;
+  letter-spacing: -0.01em;
 }
 
-/* Mono uppercase tag — CohereMono substitute */
-.mono-tag {
-  font-family: var(--font-mono), "JetBrains Mono", ui-monospace, SFMono-Regular,
-    Menlo, monospace;
+/* Uppercase label — Runway signature */
+.label-upper {
   font-size: 0.875rem; /* 14px */
-  line-height: 1.4;
-  letter-spacing: 0.02em;
+  font-weight: 500;
+  line-height: 1.25;
   text-transform: uppercase;
-  font-weight: 400;
+  letter-spacing: 0.35px;
 }
 
-.mono-tag-sm {
-  font-family: var(--font-mono), "JetBrains Mono", ui-monospace, SFMono-Regular,
-    Menlo, monospace;
-  font-size: 0.75rem;
-  letter-spacing: 0.02em;
+/* Micro tag with the distinctive 450 weight */
+.micro-tag {
+  font-size: 0.6875rem; /* 11px */
+  font-weight: 450;
+  line-height: 1.3;
   text-transform: uppercase;
-  font-weight: 400;
+  letter-spacing: 0.4px;
 }
 
-/* Ghost button — the Cohere default */
-.btn-ghost {
+/* ── Buttons — restrained, small radius ── */
+
+.btn-light {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: transparent;
+  background: #ffffff;
   color: #000000;
-  font-family: var(--font-sans), Inter, Arial, ui-sans-serif, system-ui;
-  font-size: 1rem;
-  font-weight: 400;
-  padding: 0.75rem 1.25rem;
-  border-radius: 9999px;
-  transition: color 300ms var(--ease-editorial),
-    opacity 300ms var(--ease-editorial),
-    background 300ms var(--ease-editorial);
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1;
+  padding: 0.85rem 1.25rem;
+  border-radius: 6px;
+  letter-spacing: -0.005em;
+  transition: opacity 300ms var(--ease-editorial),
+    transform 300ms var(--ease-editorial);
 }
-.btn-ghost:hover {
-  color: var(--blue);
-  opacity: 0.9;
-}
-.btn-ghost:focus-visible {
-  outline: 2px solid var(--blue);
-  outline-offset: 2px;
+.btn-light:hover {
+  opacity: 0.88;
 }
 
-/* Dark solid CTA */
-.btn-solid {
+.btn-dark {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
   background: #000000;
   color: #ffffff;
-  font-family: var(--font-sans), Inter, Arial, ui-sans-serif, system-ui;
-  font-size: 1rem;
-  font-weight: 400;
-  padding: 0.85rem 1.5rem;
-  border-radius: 9999px;
-  transition: background 300ms var(--ease-editorial),
-    transform 300ms var(--ease-editorial),
-    color 300ms var(--ease-editorial);
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1;
+  padding: 0.85rem 1.25rem;
+  border-radius: 6px;
+  letter-spacing: -0.005em;
+  transition: opacity 300ms var(--ease-editorial);
 }
-.btn-solid:hover {
-  background: var(--blue);
-  color: #ffffff;
-}
-.btn-solid:focus-visible {
-  outline: 2px solid var(--blue);
-  outline-offset: 3px;
+.btn-dark:hover {
+  opacity: 0.85;
 }
 
-/* Outlined button */
-.btn-outline {
+.btn-ghost {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
   background: transparent;
-  color: #000000;
-  font-family: var(--font-sans), Inter, Arial, ui-sans-serif, system-ui;
-  font-size: 1rem;
-  font-weight: 400;
-  padding: 0.85rem 1.5rem;
-  border-radius: 9999px;
-  border: 1px solid var(--border-cool);
-  transition: color 300ms var(--ease-editorial),
-    border-color 300ms var(--ease-editorial);
+  color: currentColor;
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 0.85rem 1.25rem;
+  border: 1px solid currentColor;
+  border-radius: 6px;
+  transition: opacity 300ms var(--ease-editorial);
+  opacity: 0.85;
 }
-.btn-outline:hover {
-  color: var(--blue);
-  border-color: var(--blue);
+.btn-ghost:hover {
+  opacity: 1;
 }
 
-/* 22px signature card */
-.card-22 {
-  background: #ffffff;
-  border: 1px solid var(--border-light);
-  border-radius: 22px;
-  overflow: hidden;
-}
+/* ── Inputs — minimal, no fills ── */
 
-.card-emphasis {
-  border: 1px solid var(--border-cool);
-}
-
-/* Input styles */
-.input-cohere {
+.input-reel {
   width: 100%;
   background: transparent;
-  border: 1px solid var(--border-cool);
-  border-radius: 12px;
-  padding: 0.85rem 1rem;
-  font-family: var(--font-sans), Inter, Arial, ui-sans-serif, system-ui;
+  border: 0;
+  border-bottom: 1px solid var(--border-dark);
+  border-radius: 0;
+  padding: 0.85rem 0;
+  font-family: inherit;
   font-size: 1rem;
-  color: #000000;
-  transition: border-color 300ms var(--ease-editorial),
-    box-shadow 300ms var(--ease-editorial);
+  color: #ffffff;
+  letter-spacing: -0.01em;
+  transition: border-color 300ms var(--ease-editorial);
 }
-.input-cohere::placeholder {
-  color: var(--muted-slate);
+.input-reel::placeholder {
+  color: var(--mid-slate);
 }
-.input-cohere:focus {
+.input-reel:focus {
   outline: none;
-  border-color: var(--focus-purple, #9b60aa);
-  box-shadow: 0 0 0 3px rgba(155, 96, 170, 0.15);
+  border-bottom-color: #ffffff;
 }
 
-/* Marquee */
+.input-reel-light {
+  width: 100%;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--cool-silver);
+  border-radius: 0;
+  padding: 0.85rem 0;
+  font-family: inherit;
+  font-size: 1rem;
+  color: #000000;
+  letter-spacing: -0.01em;
+  transition: border-color 300ms var(--ease-editorial);
+}
+.input-reel-light::placeholder {
+  color: var(--cool-slate);
+}
+.input-reel-light:focus {
+  outline: none;
+  border-bottom-color: #000000;
+}
+
+/* ── Marquee ── */
+
 @keyframes marquee {
   0% {
     transform: translateX(0);
@@ -233,7 +233,6 @@ body {
     transform: translateX(-50%);
   }
 }
-
 .marquee-track {
   animation: marquee 50s linear infinite;
   will-change: transform;
@@ -250,7 +249,8 @@ body {
   scrollbar-width: none;
 }
 
-/* Custom cursor — difference blend */
+/* ── Cursor ── */
+
 .cursor-root {
   position: fixed;
   top: 0;
@@ -266,38 +266,42 @@ body {
   transition: transform 300ms var(--ease-editorial);
 }
 
-/* Image scale on hover */
-.img-zoom {
-  transition: transform 700ms var(--ease-editorial);
+/* ── Image behavior ── */
+
+.img-cinema {
+  transition: transform 900ms var(--ease-editorial),
+    filter 700ms var(--ease-editorial);
 }
-.group:hover .img-zoom {
-  transform: scale(1.05);
+.group:hover .img-cinema {
+  transform: scale(1.04);
 }
 
-/* Deep purple gradient band */
-.violet-band {
+/* Subtle dark film vignette overlay */
+.film-vignette::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
   background: radial-gradient(
-      110% 80% at 10% 10%,
-      rgba(123, 75, 196, 0.55) 0%,
-      rgba(42, 22, 73, 0) 55%
-    ),
-    radial-gradient(
-      100% 80% at 100% 90%,
-      rgba(75, 42, 122, 0.7) 0%,
-      rgba(42, 22, 73, 0) 60%
-    ),
-    linear-gradient(180deg, #1a0d2e 0%, #2a1649 50%, #17101f 100%);
-}
-
-/* Footer dusk gradient */
-.footer-dusk {
-  background: linear-gradient(180deg, #2a1649 0%, #17101f 40%, #0a0a0a 100%);
+    120% 80% at 50% 40%,
+    rgba(0, 0, 0, 0) 45%,
+    rgba(0, 0, 0, 0.55) 100%
+  );
 }
 
 /* Hairlines */
-.hairline-top {
-  border-top: 1px solid var(--border-light);
+.hairline-dark {
+  border-color: var(--border-dark);
 }
-.hairline-bottom {
-  border-bottom: 1px solid var(--border-light);
+.hairline-top-dark {
+  border-top: 1px solid var(--border-dark);
+}
+.hairline-bottom-dark {
+  border-bottom: 1px solid var(--border-dark);
+}
+.hairline-top-light {
+  border-top: 1px solid var(--cool-silver);
+}
+.hairline-bottom-light {
+  border-bottom: 1px solid var(--cool-silver);
 }

@@ -29,24 +29,21 @@ export default function Header() {
       <div
         className={`transition-all duration-500 ease-editorial ${
           scrolled
-            ? "bg-paper/90 backdrop-blur border-b border-gray-lightest"
+            ? "bg-ink/70 backdrop-blur-md border-b border-border-dark"
             : "bg-transparent"
         }`}
       >
-        <div className="mx-auto flex max-w-wide items-center justify-between px-6 md:px-10 py-4">
+        <div className="mx-auto flex max-w-container items-center justify-between px-6 md:px-10 py-4">
           <a
             href="#top"
-            className="flex items-center gap-2 text-deep-dark"
+            className="flex items-center gap-3 text-paper"
             data-cursor="hover"
           >
-            <span
-              className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-deep-dark text-paper display text-base"
-              aria-hidden
-            >
-              P
-            </span>
-            <span className="text-deep-dark text-base md:text-lg tracking-tight">
+            <span className="text-paper text-[15px] font-medium tracking-tight">
               Hotel Parth
+            </span>
+            <span className="micro-tag text-cool-slate hidden sm:inline">
+              / Hamirpur
             </span>
           </a>
 
@@ -55,12 +52,12 @@ export default function Header() {
               <a
                 key={l.href}
                 href={l.href}
-                className="text-deep-dark text-[15px] hover:text-blue transition-colors duration-300"
+                className="text-paper/80 hover:text-paper text-[15px] transition-colors duration-300"
               >
                 {l.label}
               </a>
             ))}
-            <a href="#book" className="btn-solid text-sm">
+            <a href="#book" className="btn-light">
               Book Enquiry
             </a>
           </nav>
@@ -68,9 +65,9 @@ export default function Header() {
           <button
             aria-label="Open menu"
             onClick={() => setOpen(true)}
-            className="md:hidden text-deep-dark"
+            className="md:hidden text-paper"
           >
-            <Menu size={24} />
+            <Menu size={22} />
           </button>
         </div>
       </div>
@@ -82,16 +79,16 @@ export default function Header() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed inset-0 z-[200] bg-paper md:hidden"
+            className="fixed inset-0 z-[200] bg-ink md:hidden"
           >
-            <div className="flex items-center justify-between px-6 py-4 border-b border-gray-lightest">
-              <span className="text-deep-dark text-lg">Hotel Parth</span>
+            <div className="flex items-center justify-between px-6 py-4 border-b border-border-dark">
+              <span className="text-paper text-[15px]">Hotel Parth</span>
               <button
                 aria-label="Close menu"
                 onClick={() => setOpen(false)}
-                className="text-deep-dark"
+                className="text-paper"
               >
-                <X size={24} />
+                <X size={22} />
               </button>
             </div>
             <nav className="flex flex-col items-start gap-1 px-6 mt-10">
@@ -107,7 +104,7 @@ export default function Header() {
                     delay: 0.08 + i * 0.05,
                     ease: [0.16, 1, 0.3, 1],
                   }}
-                  className="display text-5xl text-ink py-3 border-b border-gray-lightest w-full"
+                  className="display-lg text-paper py-4 border-b border-border-dark w-full"
                 >
                   {l.label}
                 </motion.a>
@@ -115,11 +112,11 @@ export default function Header() {
               <a
                 href="#book"
                 onClick={() => setOpen(false)}
-                className="btn-solid mt-8"
+                className="btn-light mt-8"
               >
                 Book Enquiry
               </a>
-              <p className="mono-tag-sm text-muted-slate mt-10">
+              <p className="micro-tag text-cool-slate mt-10">
                 {siteInfo.location}
               </p>
             </nav>

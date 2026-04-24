@@ -7,47 +7,39 @@ export default function Gallery() {
   return (
     <section
       id="gallery"
-      className="relative bg-snow text-deep-dark py-24 md:py-32 px-6 md:px-10 border-t border-gray-lightest"
+      className="relative bg-ink text-paper py-24 md:py-32 px-6 md:px-10 border-t border-border-dark"
     >
       <div className="mx-auto max-w-container">
         <div className="flex items-end justify-between flex-wrap gap-6 mb-14 md:mb-20">
           <Reveal>
-            <p className="mono-tag text-muted-slate">05 — Gallery</p>
-            <h2
-              className="display mt-4 text-deep-dark"
-              style={{
-                fontSize: "clamp(2.25rem, 6vw, 4.5rem)",
-                lineHeight: 1,
-                letterSpacing: "-0.02em",
-              }}
-            >
-              Atmosphere.
-            </h2>
+            <p className="label-upper text-cool-slate">03 — Gallery</p>
+            <h2 className="h-section mt-6 text-paper">Atmosphere.</h2>
           </Reveal>
           <Reveal delay={0.1}>
-            <p className="text-near-black body-lg max-w-sm">
+            <p className="text-cool-slate body-std max-w-sm">
               Moments from Hotel Parth — interiors, dining, grounds, and
               hospitality.
             </p>
           </Reveal>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 md:auto-rows-[260px] gap-4 md:gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-4 md:auto-rows-[240px] gap-3 md:gap-4">
           {galleryImages.map((img, i) => (
             <Reveal
               key={i}
               delay={(i % 4) * 0.06}
-              className={`group relative overflow-hidden card-22 ${img.span}`}
+              className={`group relative overflow-hidden ${img.span}`}
             >
               <div
                 className="relative h-full w-full min-h-[200px] overflow-hidden"
+                style={{ borderRadius: "8px" }}
                 data-cursor="hover"
               >
                 <img
                   src={img.src}
                   alt={img.alt}
                   loading="lazy"
-                  className="img-zoom absolute inset-0 h-full w-full object-cover"
+                  className="img-cinema absolute inset-0 h-full w-full object-cover"
                 />
               </div>
             </Reveal>

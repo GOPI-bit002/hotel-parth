@@ -14,41 +14,34 @@ export default function Location() {
   return (
     <section
       id="location"
-      className="relative bg-paper text-deep-dark py-24 md:py-32 px-6 md:px-10 border-t border-gray-lightest"
+      className="relative bg-ink text-paper py-24 md:py-32 px-6 md:px-10 border-t border-border-dark"
     >
       <div className="mx-auto max-w-container grid md:grid-cols-12 gap-10 md:gap-16">
         <div className="md:col-span-5">
           <Reveal>
-            <p className="mono-tag text-muted-slate">04 — Location</p>
+            <p className="label-upper text-cool-slate">04 — Location</p>
           </Reveal>
           <Reveal delay={0.08}>
-            <h2
-              className="display mt-4 text-deep-dark"
-              style={{
-                fontSize: "clamp(2.25rem, 6vw, 4.5rem)",
-                lineHeight: 1,
-                letterSpacing: "-0.02em",
-              }}
-            >
+            <h2 className="h-section mt-6 text-paper">
               Hamirpur,
               <br />
               Himachal.
             </h2>
           </Reveal>
           <Reveal delay={0.15}>
-            <p className="text-near-black body-lg mt-6 max-w-md">
+            <p className="text-cool-slate body-std mt-6 max-w-md leading-relaxed">
               {siteInfo.name} is set in Hamirpur, Himachal Pradesh — a calm,
               well-connected town in the foothills. A quiet place to stay, with
               the comforts of a city nearby.
             </p>
           </Reveal>
 
-          <div className="mt-10">
+          <div className="mt-10 border-t border-border-dark">
             {highlights.map((h, i) => (
               <Reveal key={h} delay={0.2 + i * 0.05}>
-                <div className="py-5 border-b border-gray-lightest flex items-start gap-4">
-                  <MapPin size={18} className="mt-1 shrink-0 text-blue" />
-                  <p className="text-deep-dark text-base md:text-lg">{h}</p>
+                <div className="py-5 border-b border-border-dark flex items-start gap-4">
+                  <MapPin size={16} className="mt-1 shrink-0 text-paper" />
+                  <p className="text-paper text-base md:text-lg">{h}</p>
                 </div>
               </Reveal>
             ))}
@@ -59,11 +52,11 @@ export default function Location() {
               href={siteInfo.mapsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-outline group mt-10"
+              className="btn-ghost group mt-10 text-paper"
             >
               Open in Google Maps
               <ArrowUpRight
-                size={16}
+                size={14}
                 className="transition-transform duration-500 ease-editorial group-hover:rotate-45"
               />
             </a>
@@ -72,24 +65,26 @@ export default function Location() {
 
         <Reveal delay={0.12} className="md:col-span-7">
           <div
-            className="relative overflow-hidden card-22 violet-band"
-            style={{ aspectRatio: "4 / 3" }}
+            className="relative overflow-hidden film-vignette"
+            style={{
+              aspectRatio: "4 / 3",
+              borderRadius: "8px",
+              border: "1px solid #27272a",
+            }}
+            data-cursor="hover"
           >
             <img
               src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=2000&q=80"
               alt="Himachal Pradesh landscape"
               loading="lazy"
-              className="h-full w-full object-cover opacity-80 mix-blend-luminosity"
+              className="img-cinema h-full w-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-violet-deep/80 via-violet-deep/10 to-transparent" />
-            <div className="absolute left-6 right-6 bottom-6 flex items-end justify-between gap-6">
+            <div className="absolute left-6 right-6 bottom-6 z-10 flex items-end justify-between gap-6">
               <div>
-                <p className="mono-tag-sm text-paper/80">Hotel Parth</p>
-                <p className="text-paper display text-3xl md:text-4xl mt-2">
-                  Hamirpur · H.P.
-                </p>
+                <p className="micro-tag text-paper/80">Hotel Parth</p>
+                <p className="text-paper h-card mt-2">Hamirpur · H.P.</p>
               </div>
-              <span className="mono-tag-sm text-paper/80">
+              <span className="micro-tag text-paper/80">
                 31.68°N / 76.52°E
               </span>
             </div>
